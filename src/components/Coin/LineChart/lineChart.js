@@ -5,8 +5,12 @@ import { convertNumbers } from "../../../functions/convertNumbers";
 import TradingViewWidget from "./TradingViewWidget";
 import CoinInfo from "../CoinInfo/info";
 import "./lineChart.css"; // Add a CSS file for styling
+import { useParams } from "react-router-dom";
 
 function LineChart({ chartData, priceType, multiAxis, coinName, coinDesc, coinSymbol }) {
+    const { id } = useParams();
+    console.log(id);
+    
   // console.log("chartData:", chartData.datasets[0].label);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
@@ -83,13 +87,13 @@ function LineChart({ chartData, priceType, multiAxis, coinName, coinDesc, coinSy
   return (
     <div className="line-chart-container">
       <div className="ticker-widget-section" id="ticker-widget">
-        <gecko-coin-ticker-widget locale="en" outlined="true" initial-currency="usd" coin-id={chartData.datasets[0].label}></gecko-coin-ticker-widget>
+        <gecko-coin-ticker-widget locale="en" outlined="true" initial-currency="usd" coin-id={id}></gecko-coin-ticker-widget>
       </div>
       <div className="chart-section">
         <Line data={chartData} options={options} />
       </div>
       <div className="converter-widget-section" id="converter-widget">
-        <gecko-coin-converter-widget locale="en" outlined="true" initial-currency="usd" coin-id={chartData.datasets[0].label}></gecko-coin-converter-widget>
+        <gecko-coin-converter-widget locale="en" outlined="true" initial-currency="usd" coin-id={id}></gecko-coin-converter-widget>
       </div>
       <div className="widget-section">
         <TradingViewWidget symbol={chartData.datasets[0].label} />
