@@ -1,0 +1,28 @@
+.line-chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chart-section,
+.widget-section,
+.info-section,
+.ticker-widget-section,
+.converter-widget-section {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .line-chart-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .chart-section,
+  .widget-section,
+  .info-section,
+  .ticker-widget-section,
+  .converter-widget-section {
+    flex: 1 1 45%;
+  }
+}

@@ -15,7 +15,9 @@ function DashboardPage() {
   const [search, setSearch] = useState("");
   const [pageNumber, setPageNumber] = useState(1);
   const [paginatedCoins, setPaginatedCoins] = useState([]);
-
+  let theme = localStorage.getItem("theme");
+  console.log("theme:", theme);
+  
   const handlePageChange = (event, value) => {
     setPageNumber(value);
     var startingIndex = (value - 1) * 10;
@@ -34,9 +36,16 @@ function DashboardPage() {
       return coin;
     }
   });
-
+  
   useEffect(() => {
     getData();
+  }, []);
+
+  useEffect(() => {
+    const tickerScript = document.createElement("script");
+    tickerScript.src = "https://widgets.coingecko.com/gecko-coin-price-marquee-widget.js";
+    tickerScript.async = true;
+    document.getElementById("price-marquee-widget").appendChild(tickerScript);
   }, []);
 
   const getData = async () => {
@@ -56,8 +65,13 @@ function DashboardPage() {
         <Loader />
       ) : (
         <div style={{ minHeight: "90vh" }}>
-          <Header />
+          {/* <Header /> */}
           <SearchComponent search={search} onChange={onChange} />
+          {/* //Coin Price Marquee Widget */}
+          <div className="price-marquee-widget-section" id="price-marquee-widget">
+            <gecko-coin-price-marquee-widget locale="en" outlined="true" coin-ids="" initial-currency="usd"></gecko-coin-price-marquee-widget>
+          </div>
+          {/* //Coin Price Marquee Widget */}
           <TabsComponent
             coins={search ? filteredCoins : paginatedCoins}
             setSearch={setSearch}
@@ -70,7 +84,7 @@ function DashboardPage() {
           )}
         </div>
       )}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
