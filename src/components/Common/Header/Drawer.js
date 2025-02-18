@@ -52,9 +52,9 @@ export default function MobileDrawer() {
           <a href="/watchlist">
             <p className="link">Watchlist</p>
           </a>
-          <a href="/dashboard">
+          {/* <a href="/dashboard">
             <p className="link">Dashboard</p>
-          </a>
+          </a> */}
           <div
             style={{
               display: "flex",

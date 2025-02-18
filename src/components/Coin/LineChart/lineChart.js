@@ -86,20 +86,24 @@ function LineChart({ chartData, priceType, multiAxis, coinName, coinDesc, coinSy
 
   return (
     <div className="line-chart-container">
-      <div className="ticker-widget-section" id="ticker-widget">
-        <gecko-coin-ticker-widget locale="en" outlined="true" initial-currency="usd" coin-id={id}></gecko-coin-ticker-widget>
+      <div className="first-row">
+        <div className="ticker-widget-section" id="ticker-widget">
+          <gecko-coin-ticker-widget locale="en" outlined="true" initial-currency="usd" coin-id={id}></gecko-coin-ticker-widget>
+        </div>
+        <div className="widget-section">
+          <TradingViewWidget symbol={chartData.datasets[0].label} />
+        </div>
+        <div className="chart-section">
+          <Line data={chartData} options={options} />
+        </div>
       </div>
-      <div className="chart-section">
-        <Line data={chartData} options={options} />
-      </div>
-      <div className="converter-widget-section" id="converter-widget">
-        <gecko-coin-converter-widget locale="en" outlined="true" initial-currency="usd" coin-id={id}></gecko-coin-converter-widget>
-      </div>
-      <div className="widget-section">
-        <TradingViewWidget symbol={chartData.datasets[0].label} />
-      </div>
-      <div className="info-section">
-        <CoinInfo name={coinName} desc={coinDesc} />
+      <div className="second-row">
+        <div className="converter-widget-section" id="converter-widget">
+          <gecko-coin-converter-widget locale="en" outlined="true" initial-currency="usd" coin-id={id}></gecko-coin-converter-widget>
+        </div>
+        <div className="info-section">
+          <CoinInfo name={coinName} desc={coinDesc} />
+        </div>
       </div>
     </div>
   );

@@ -43,9 +43,9 @@ function LandingPageComponent() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <a href="/dashboard">
+            {/* <a href="/dashboard">
               <Button text="Dashboard" />
-            </a>
+            </a> */}
             <RWebShare
               data={{
                 text: "Crypto Dashboard made using React JS.",

@@ -62,14 +62,14 @@ function Header() {
         <a href="/watchlist">
           <p className="link">Watchlist</p>
         </a>
-        <a href="/dashboard">
+        {/* <a href="/dashboard">
           <Button
             text="Dashboard"
             onClick={() => {
               console.log("btn-clicked!!!");
             }}
           />
-        </a>
+        </a> */}
       </div>
       <MobileDrawer />
     </div>
