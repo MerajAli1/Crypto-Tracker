@@ -5,9 +5,17 @@ import { convertNumbers } from "../../../functions/convertNumbers";
 import TradingViewWidget from "./TradingViewWidget";
 import CoinInfo from "../CoinInfo/info";
 import "./lineChart.css"; // Add a CSS file for styling
+import "../CoinInfo/styles.css"; // Add a CSS file for styling
 import { useParams } from "react-router-dom";
 
 function LineChart({ chartData, priceType, multiAxis, coinName, coinDesc, coinSymbol }) {
+  console.log("chartData:", chartData);
+  console.log("priceType:", priceType);
+  console.log("coinName:", coinName);
+  console.log("coinDesc:", coinDesc);
+  console.log("coinSymbol:", coinSymbol);
+  
+  
     const { id } = useParams();
     console.log(id);
     

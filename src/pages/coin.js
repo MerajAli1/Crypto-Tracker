@@ -77,9 +77,9 @@ function CoinPage() {
               handlePriceTypeChange={handlePriceTypeChange}
               priceType={priceType}
             />
-            <LineChart chartData={chartData} priceType={priceType} />
+            <LineChart chartData={chartData} priceType={priceType} coinName={coin.name} coinDesc={coin.desc} />
           </div>
-          <CoinInfo name={coin.name} desc={coin.desc} />
+          {/* <CoinInfo name={coin.name} desc={coin.desc} /> */}
         </>
       )}
       <Footer />

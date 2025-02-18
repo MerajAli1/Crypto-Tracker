@@ -40,8 +40,10 @@
 }
 
 .info-section {
-  flex: 2;
+  flex: 1;
   min-width: 400px;
+  box-shadow: 5px 5px 5px rgba(40, 40, 40, 0.1);
+  border-radius: 20px;
 }
 
 /* Responsive layout for small screens */
